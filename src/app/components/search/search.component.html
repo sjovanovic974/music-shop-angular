@@ -1,0 +1,13 @@
+<div class="search-container">
+  <input
+    #myInput
+    (keyup.enter)="doSearch(myInput.value)"
+    onfocus="this.value=''"
+    type="text"
+    placeholder="Search..."
+    name="search"
+  />
+  <button (click)="doSearch(myInput.value)" type="submit">
+    <i class="fa fa-search"></i>
+  </button>
+</div>

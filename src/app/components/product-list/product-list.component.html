@@ -1,12 +1,20 @@
 <!-- Section-->
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
-    <h4>Category: {{ currentCategoryName }}</h4>
-    <hr>
+    <div *ngIf="searchMode == false">
+      <h4>Category: {{ currentCategoryName }}</h4>
+      <hr />
+    </div>
+
+    <!-- if products empty then display a message -->
+    <div *ngIf="products?.length == 0" class="mt-5 mb-5 pt-5 pb-5">
+      <h2 class="text-center">No products found!</h2>
+    </div>
+
     <div
       class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
     >
-      <div *ngFor="let tempProduct of products" class="col mb-5">
+      <div *ngFor="let tempProduct of products" class="col mb-5 align-center">
         <div class="card h-100">
           <!-- Sale badge-->
           <div
