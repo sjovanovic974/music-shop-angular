@@ -11659,4 +11659,7 @@ fieldset:disabled .btn {
   }
 
   /* CUSTOM CSS */
+  .active-link {
+    font-weight: bold;
+  }
 }

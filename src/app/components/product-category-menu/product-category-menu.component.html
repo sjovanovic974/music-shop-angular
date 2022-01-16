@@ -1,0 +1,12 @@
+
+ 
+    <li *ngFor="let tempProductCategory of productCategories">
+      <a
+        class="dropdown-item"
+        routerLink="/category/{{ tempProductCategory.id }}"
+        routerLinkActive="active-link"
+        >{{ tempProductCategory.categoryName }}</a
+      >
+    </li>
+  
+

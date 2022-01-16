@@ -25,13 +25,19 @@
             <div class="text-center">
               <!-- Product name-->
               <h5 class="fw-bolder">{{ tempProduct.name }}</h5>
+
               <!-- Product price-->
+
               <!--
               <span class="text-muted text-decoration-line-through"
                 >$50.00</span
               >
               -->
-              {{ tempProduct.unitPrice | currency: "USD" }}
+              <p>{{ tempProduct.unitPrice | currency: "USD" }}</p>
+
+              <div class="badge bg-dark" style="top: 0.5rem; right: 0.5rem">
+                {{ tempProduct.category.categoryName }}
+              </div>
             </div>
           </div>
           <!-- Product actions-->

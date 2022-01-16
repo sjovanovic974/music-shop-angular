@@ -1,4 +1,7 @@
+import { ProductCategory } from './product-category';
+
 export class Product {
+  id!: number;
   sku!: string;
   name!: string;
   description!: string;
@@ -8,4 +11,5 @@ export class Product {
   unitsInStock!: number;
   dateCreated!: Date;
   lastUpdated!: Date;
+  category!: ProductCategory;
 }
