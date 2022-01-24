@@ -14,7 +14,10 @@
     <div
       class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
     >
-      <div *ngFor="let tempProduct of products" class="col mb-5 align-center">
+      <div
+        *ngFor="let tempProduct of products"
+        class="col mb-5 justify-content-center"
+      >
         <div class="card h-100">
           <!-- Sale badge-->
           <div
@@ -25,17 +28,25 @@
             Sold Out
           </div>
           <!-- Product image-->
-          <img
-            class="card-img-top"
-            src="{{ tempProduct.imageUrl }}"
-            alt="..."
-          />
+
+          <a routerLink="/products/{{ tempProduct.id }}">
+            <img
+              class="card-img-top mx-auto d-block"
+              src="{{ tempProduct.imageUrl }}"
+              alt="..."
+            />
+          </a>
+
           <!-- Product details-->
           <div class="card-body p-4">
             <div class="text-center">
               <!-- Product name-->
-              <h5 class="fw-bolder">{{ tempProduct.name }}</h5>
-
+              <a
+                routerLink="/products/{{ tempProduct.id }}"
+                class="link-dark text-decoration-none"
+              >
+                <h5 class="fw-bolder">{{ tempProduct.name }}</h5>
+              </a>
               <!-- Product price-->
 
               <!--

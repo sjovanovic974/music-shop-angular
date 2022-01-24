@@ -1,0 +1,28 @@
+<!-- Section-->
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row justify-content-center mb-5 mt-5">
+      <div class="col">
+        <img src="{{ product.imageUrl }}" />
+      </div>
+
+      <div class="col">
+        <h3>{{ product.name }}</h3>
+
+        <h5 class="mt-3 mb-3">{{ product.unitPrice | currency: "USD" }}</h5>
+
+        <div class="badge bg-dark" style="top: 0.5rem; right: 0.5rem">
+          {{ product.category.categoryName }}
+        </div>
+
+        <div class="mt-5">
+          <a href="#" class="btn btn-outline-dark">Add to cart</a>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <h4 class="mt-3 mb-3">Description</h4>
+    <p class="mt-5 mb-5">{{ product.description }}</p>
+    <a routerLink="/products" class="mt-5">Back to Product List</a>
+  </div>
+</section>
