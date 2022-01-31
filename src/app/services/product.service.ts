@@ -9,9 +9,14 @@ import { ProductCategory } from '../common/product-category';
   providedIn: 'root',
 })
 export class ProductService {
+  /* 
   private baseUrl: string = 'https://deployment-shit.herokuapp.com/products';
   private categoryUrl: string =
-    'https://deployment-shit.herokuapp.com/products/categories';
+    'https://deployment-shit.herokuapp.com/products/categories'; 
+  */
+
+  private baseUrl: string = 'http://localhost:8080/products';
+  private categoryUrl: string = 'http://localhost:8080/products/categories';
 
   constructor(private httpClient: HttpClient) {}
 
