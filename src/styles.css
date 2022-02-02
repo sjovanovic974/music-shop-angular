@@ -4888,9 +4888,7 @@ fieldset:disabled .btn {
   border-radius: calc(0.25rem - 1px);
 }
 
-.card-img,
-.card-img-top,
-.card-img-bottom {
+#main-img {
   max-height: 223px;
   width: auto;
   align-self: center;
