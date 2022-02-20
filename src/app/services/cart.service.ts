@@ -10,7 +10,19 @@ export class CartService {
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
   totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
 
-  constructor() {}
+  storage: Storage = localStorage;
+
+  constructor() {
+    // read the data from storage
+    let data: CartItem[] = JSON.parse(this.storage.getItem('cartItems')!);
+
+    if (data != null) {
+      this.cartItems = data;
+    }
+
+    // compute totals based on teh data that is read from storage
+    this.computeCartTotals();
+  }
 
   addToCart(theCartItem: CartItem) {
     // check if we already have the item in our cart
@@ -53,27 +65,8 @@ export class CartService {
     this.totalPrice.next(totalPriceValue);
     this.totalQuantity.next(totalQuantityValue);
 
-    // log cart data just for debugging purposes
-    this.logCartData(totalPriceValue, totalQuantityValue);
-  }
-
-  logCartData(totalPriceValue: number, totalQuantityValue: number) {
-    console.log('Contents of the cart');
-
-    for (let tempCartItem of this.cartItems) {
-      const subTotalPrice = tempCartItem.quantity * tempCartItem.unitPrice;
-      console.log(
-        `name: ${tempCartItem.name}, quantity=${tempCartItem.quantity}, unitPrice=${tempCartItem.unitPrice}, subTotalPrice=${subTotalPrice}`
-      );
-    }
-
-    console.log(
-      `totalPrice: ${totalPriceValue.toFixed(
-        2
-      )}, totalQuantity: ${totalQuantityValue}`
-    );
-
-    console.log('---------------------------');
+    // persist cart data
+    this.persistCartItems();
   }
 
   decrementQuantity(theCartItem: CartItem) {
@@ -98,5 +91,9 @@ export class CartService {
 
       this.computeCartTotals();
     }
+  }
+
+  persistCartItems() {
+    this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
 }
