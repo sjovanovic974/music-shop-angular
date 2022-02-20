@@ -4889,8 +4889,8 @@ fieldset:disabled .btn {
 }
 
 #main-img {
-  max-height: 223px;
-  width: auto;
+  max-width: 100%;
+  height: auto;
   align-self: center;
 }
 
