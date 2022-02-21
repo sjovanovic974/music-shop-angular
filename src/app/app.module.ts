@@ -23,10 +23,14 @@ import {
   OktaAuthGuard,
 } from '@okta/okta-angular';
 import myAppConfig from './config/my-app-config';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 const oktaConfig = Object.assign(
   {
-    onAuthRequired: (OktaAuth: any, injector: { get: (arg0: typeof Router) => any }) => {
+    onAuthRequired: (
+      OktaAuth: any,
+      injector: { get: (arg0: typeof Router) => any }
+    ) => {
       const router = injector.get(Router);
 
       // Redirect the user to our custom login page
@@ -37,9 +41,18 @@ const oktaConfig = Object.assign(
 );
 
 const routes: Routes = [
+  {
+    path: 'order-history',
+    component: OrderHistoryComponent,
+    canActivate: [OktaAuthGuard],
+  },
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'checkout', component: CheckoutComponent, canActivate:[OktaAuthGuard] },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    canActivate: [OktaAuthGuard],
+  },
   { path: 'cart-details', component: CartDetailsComponent },
   { path: 'search/:keyword', component: ProductListComponent },
   { path: 'category/:id/:name', component: ProductListComponent },
@@ -62,6 +75,7 @@ const routes: Routes = [
     CheckoutComponent,
     LoginComponent,
     LoginStatusComponent,
+    OrderHistoryComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -17,5 +17,13 @@
     >
       Logout
     </button>
+
+    <button
+      *ngIf="isAuthenticated"
+      routerLink="/order-history"
+      class="btn btn-outline-dark m-3"
+    >
+      Orders
+    </button>
   </div>
 </div>
