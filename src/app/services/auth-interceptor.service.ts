@@ -29,6 +29,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     const securedEndpoints = [
       'http://localhost:8080/orders',
       'http://localhost:8080/checkout/purchase',
+      'http://localhost:8080/countries',
     ];
 
     if (securedEndpoints.some((url) => request.urlWithParams.includes(url))) {
